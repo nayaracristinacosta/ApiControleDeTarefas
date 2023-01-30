@@ -1,0 +1,282 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\Ioc\\Ioc.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Domain\\ApiControleDeTarefas.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Domain\\ApiControleDeTarefas.Domain.csproj",
+        "projectName": "ApiControleDeTarefas.Domain",
+        "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Domain\\ApiControleDeTarefas.Domain.csproj",
+        "packagesPath": "C:\\Users\\NayaraCosta\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\NayaraCosta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\ApiControleDeTarefas.Repositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\ApiControleDeTarefas.Repositories.csproj",
+        "projectName": "ApiControleDeTarefas.Repositories",
+        "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\ApiControleDeTarefas.Repositories.csproj",
+        "packagesPath": "C:\\Users\\NayaraCosta\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\NayaraCosta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Domain\\ApiControleDeTarefas.Domain.csproj": {
+                "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Domain\\ApiControleDeTarefas.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.13, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Services\\ApiControleDeTarefas.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Services\\ApiControleDeTarefas.Services.csproj",
+        "projectName": "ApiControleDeTarefas.Services",
+        "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Services\\ApiControleDeTarefas.Services.csproj",
+        "packagesPath": "C:\\Users\\NayaraCosta\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\NayaraCosta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Domain\\ApiControleDeTarefas.Domain.csproj": {
+                "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Domain\\ApiControleDeTarefas.Domain.csproj"
+              },
+              "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\ApiControleDeTarefas.Repositories.csproj": {
+                "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\ApiControleDeTarefas.Repositories.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.26.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.26.0, )"
+            },
+            "Wodsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[1.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\Ioc\\Ioc.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\Ioc\\Ioc.csproj",
+        "projectName": "Ioc",
+        "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\Ioc\\Ioc.csproj",
+        "packagesPath": "C:\\Users\\NayaraCosta\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\Ioc\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\NayaraCosta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\ApiControleDeTarefas.Repositories.csproj": {
+                "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\ApiControleDeTarefas.Repositories.csproj"
+              },
+              "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Services\\ApiControleDeTarefas.Services.csproj": {
+                "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Services\\ApiControleDeTarefas.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

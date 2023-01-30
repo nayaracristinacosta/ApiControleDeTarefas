@@ -1,0 +1,17 @@
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\bin\Debug\net6.0\ApiControleDeTarefas.Services.deps.json
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\bin\Debug\net6.0\ApiControleDeTarefas.Services.dll
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\bin\Debug\net6.0\ApiControleDeTarefas.Services.pdb
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\bin\Debug\net6.0\ApiControleDeTarefas.Domain.dll
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\bin\Debug\net6.0\ApiControleDeTarefas.Repositories.dll
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\bin\Debug\net6.0\ApiControleDeTarefas.Domain.pdb
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\bin\Debug\net6.0\ApiControleDeTarefas.Repositories.pdb
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\obj\Debug\net6.0\ApiControleDeTarefas.Services.csproj.AssemblyReference.cache
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\obj\Debug\net6.0\ApiControleDeTarefas.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\obj\Debug\net6.0\ApiControleDeTarefas.Services.AssemblyInfoInputs.cache
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\obj\Debug\net6.0\ApiControleDeTarefas.Services.AssemblyInfo.cs
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\obj\Debug\net6.0\ApiControleDeTarefas.Services.csproj.CoreCompileInputs.cache
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\obj\Debug\net6.0\ApiControleDeTarefas.Services.csproj.CopyComplete
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\obj\Debug\net6.0\ApiControleDeTarefas.Services.dll
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\obj\Debug\net6.0\refint\ApiControleDeTarefas.Services.dll
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\obj\Debug\net6.0\ApiControleDeTarefas.Services.pdb
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Services\obj\Debug\net6.0\ref\ApiControleDeTarefas.Services.dll

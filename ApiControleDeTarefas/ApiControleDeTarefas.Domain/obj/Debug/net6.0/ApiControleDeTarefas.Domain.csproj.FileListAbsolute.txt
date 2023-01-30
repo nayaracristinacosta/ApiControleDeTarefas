@@ -1,0 +1,12 @@
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Domain\bin\Debug\net6.0\ApiControleDeTarefas.Domain.deps.json
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Domain\bin\Debug\net6.0\ApiControleDeTarefas.Domain.dll
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Domain\bin\Debug\net6.0\ApiControleDeTarefas.Domain.pdb
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Domain\obj\Debug\net6.0\ApiControleDeTarefas.Domain.csproj.AssemblyReference.cache
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Domain\obj\Debug\net6.0\ApiControleDeTarefas.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Domain\obj\Debug\net6.0\ApiControleDeTarefas.Domain.AssemblyInfoInputs.cache
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Domain\obj\Debug\net6.0\ApiControleDeTarefas.Domain.AssemblyInfo.cs
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Domain\obj\Debug\net6.0\ApiControleDeTarefas.Domain.csproj.CoreCompileInputs.cache
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Domain\obj\Debug\net6.0\ApiControleDeTarefas.Domain.dll
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Domain\obj\Debug\net6.0\refint\ApiControleDeTarefas.Domain.dll
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Domain\obj\Debug\net6.0\ApiControleDeTarefas.Domain.pdb
+C:\Users\NayaraCosta\Desktop\nayaracristinacosta\ApiControleDeTarefas\ApiControleDeTarefas.Domain\obj\Debug\net6.0\ref\ApiControleDeTarefas.Domain.dll
