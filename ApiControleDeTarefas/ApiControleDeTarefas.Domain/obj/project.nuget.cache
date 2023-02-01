@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4L6Lclw0saUjCZ8tWxlaRSqfGlhTzrIFEnGlhau8bDNVz3ndb2OXfJ5Otp36mk5dZ87fv0QBDteQyz+XDLtrew==",
+  "dgSpecHash": "ZNGsGyyD10gYnajncD2Kway+E8W4fNwLTMzgPAdHrnCSAcOQf/9beki1nP2pSTtjpodMVInn2KDOXqoLweWqng==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Domain\\ApiControleDeTarefas.Domain.csproj",
+  "projectFilePath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.Domain\\ApiControleDeTarefas.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -7535,11 +7535,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.csproj",
+      "projectUniqueName": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.csproj",
       "projectName": "ApiControleDeTarefas",
-      "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.csproj",
+      "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.csproj",
       "packagesPath": "C:\\Users\\NayaraCosta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas\\obj\\",
+      "outputPath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NayaraCosta\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7556,8 +7556,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\Ioc\\Ioc.csproj": {
-              "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\Ioc\\Ioc.csproj"
+            "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\Ioc\\Ioc.csproj": {
+              "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\Ioc\\Ioc.csproj"
             }
           }
         }

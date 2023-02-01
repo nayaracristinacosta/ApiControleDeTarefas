@@ -50,7 +50,7 @@ namespace ApiControleDeTarefas.Controllers
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1,2")]
         [HttpPost("Funcionario")]
         public IActionResult Inserir([FromBody] Funcionario model)
         {
@@ -74,7 +74,7 @@ namespace ApiControleDeTarefas.Controllers
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1,2")]
         [HttpDelete("Funcionario/{funcionaroiId}")]
         public IActionResult Deletar([FromRoute] int funcionaroiId)
         {
@@ -88,7 +88,7 @@ namespace ApiControleDeTarefas.Controllers
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1,2")]
         [HttpPut("Funcionario")]
         public IActionResult Atualizar([FromBody] Funcionario model)
         {

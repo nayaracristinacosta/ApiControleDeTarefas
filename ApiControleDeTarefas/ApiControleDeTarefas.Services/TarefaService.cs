@@ -1,4 +1,5 @@
 ﻿using ApiControleDeTarefas.Domain.Models;
+using ApiControleDeTarefas.Domain.Models.Contratos;
 using ApiControleDeTarefas.Repositories.Repositorio;
 using System;
 using System.Collections.Generic;
@@ -46,6 +47,9 @@ namespace ApiControleDeTarefas.Services
             try
             {
                 _repositorio.AbrirConexao();
+
+                CalculaHorasGastas(model);
+
                 _repositorio.Atualizar(model);
             }
             finally
@@ -65,7 +69,7 @@ namespace ApiControleDeTarefas.Services
                 _repositorio.FecharConexao();
             }
         }
-        public void Inserir(Tarefa model)
+        public void Inserir(TarefaRequest model)
         {
             try
             {
@@ -77,6 +81,16 @@ namespace ApiControleDeTarefas.Services
                 _repositorio.FecharConexao();
             }
         }
+
+        public Tarefa CalculaHorasGastas(Tarefa model)
+        {
+            var tempoInicial = model.DataHorarioInicioTarefa.TimeOfDay;
+            var tempoFinal = model.DataHorarioFimTarefa.TimeOfDay;
+            model.TempoTotalGastoTarefa = Convert.ToString(tempoFinal - tempoInicial);
+            return model;
+        }
+
+
 
     }
 }

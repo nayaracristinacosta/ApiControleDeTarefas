@@ -5,6 +5,7 @@ using ApiControleDeTarefas.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ApiControleDeTarefas.Domain.Models;
+using ApiControleDeTarefas.Domain.Models.Contratos;
 
 namespace ApiControleDeTarefas.Controllers
 {
@@ -50,9 +51,9 @@ namespace ApiControleDeTarefas.Controllers
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1,2")]
         [HttpPost("EmpresaCliente")]
-        public IActionResult Inserir([FromBody] EmpresaCliente model)
+        public IActionResult Inserir([FromBody] EmpresaClienteRequest model)
         {
             try
             {
@@ -74,7 +75,7 @@ namespace ApiControleDeTarefas.Controllers
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1,2")]
         [HttpDelete("EmpresaCliente/{empresaClienteId}")]
         public IActionResult Deletar([FromRoute] int empresaClienteId)
         {
@@ -88,7 +89,7 @@ namespace ApiControleDeTarefas.Controllers
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1,2")]
         [HttpPut("EmpresaCliente")]
         public IActionResult Atualizar([FromBody] EmpresaCliente model)
         {

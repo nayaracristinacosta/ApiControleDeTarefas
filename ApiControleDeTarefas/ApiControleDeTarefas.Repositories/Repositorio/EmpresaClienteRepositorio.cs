@@ -1,4 +1,5 @@
 ﻿using ApiControleDeTarefas.Domain.Models;
+using ApiControleDeTarefas.Domain.Models.Contratos;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -15,19 +16,21 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
         {
         }
         
-        public void Inserir(EmpresaCliente model)
+        public void Inserir(EmpresaClienteRequest model)
         {
             string comandoSql = @"INSERT INTO EmpresasCliente
-                                    (NomeDaEmpresa,Cnpj,EnderecoDaEmpresa,NomeGestorDoContrato) 
+                                    (NomeDaEmpresa,Cnpj,EnderecoDaEmpresa,DataDeInclusaoDaEmpresa,NomeGestorDoContrato,EmailGestorDoContrato) 
                                         VALUES
-                                    (@NomeDaEmpresa,@Cnpj,@EnderecoDaEmpresa,@NomeGestorDoContrato);";
+                                    (@NomeDaEmpresa,@Cnpj,@EnderecoDaEmpresa,@DataDeInclusaoDaEmpresa,@NomeGestorDoContrato,@EmailGestorDoContrato);";
 
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
                 cmd.Parameters.AddWithValue("@NomeDaEmpresa", model.NomeDaEmpresa);
                 cmd.Parameters.AddWithValue("@Cnpj", model.Cnpj);
                 cmd.Parameters.AddWithValue("@EnderecoDaEmpresa", model.EnderecoDaEmpresa);
+                cmd.Parameters.AddWithValue("@DataDeInclusaoDaEmpresa", model.DataDeInclusaoDaEmpresa);
                 cmd.Parameters.AddWithValue("@NomeGestorDoContrato", model.NomeGestorDoContrato);
+                cmd.Parameters.AddWithValue("@EmailGestorDoContrato", model.EmailGestorDoContrato);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -39,15 +42,20 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                                     NomeDaEmpresa = @NomeDaEmpresa,
                                     Cnpj = @Cnpj,
                                     EnderecoDaEmpresa = @EnderecoDaEmpresa,
-                                    NomeGestorDoContrato = @NomeGestorDoContrato
+                                    DataDeInclusaoDaEmpresa = @DataDeInclusaoDaEmpresa,                                    
+                                    NomeGestorDoContrato = @NomeGestorDoContrato,
+                                    EmailGestorDoContrato = @EmailGestorDoContrato
                                 WHERE EmpresaClienteId = @EmpresaClienteId;";
 
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
+                cmd.Parameters.AddWithValue("@EmpresaClienteId", model.EmpresaClienteId);
                 cmd.Parameters.AddWithValue("@NomeDaEmpresa", model.NomeDaEmpresa);
                 cmd.Parameters.AddWithValue("@Cnpj", model.Cnpj);
                 cmd.Parameters.AddWithValue("@EnderecoDaEmpresa", model.EnderecoDaEmpresa);
+                cmd.Parameters.AddWithValue("@DataDeInclusaoDaEmpresa", model.DataDeInclusaoDaEmpresa);
                 cmd.Parameters.AddWithValue("@NomeGestorDoContrato", model.NomeGestorDoContrato);
+                cmd.Parameters.AddWithValue("@EmailGestorDoContrato", model.EmailGestorDoContrato);
                 if (cmd.ExecuteNonQuery() == 0)
                     throw new InvalidOperationException($"Nenhum registro afetado para o EmpresaCliente de ID {model.EmpresaClienteId}");
             }
@@ -64,11 +72,14 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
         }
         public EmpresaCliente? Obter(int empresaClienteId)
         {
-            string comandoSql = @"SELECT NomeDaEmpresa,
+            string comandoSql = @"SELECT EmpresaClienteId,
+                                         NomeDaEmpresa,
                                          Cnpj,
-                                         EnderecoDaEmpresa,         
-                                         NomeGestorDoContrato   
-                                         Perfil FROM EmpresasCliente WHERE EmpresaClienteId = @EmpresaClienteId";
+                                         EnderecoDaEmpresa,   
+                                         DataDeInclusaoDaEmpresa,
+                                         NomeGestorDoContrato, 
+                                         EmailGestorDoContrato
+                                         FROM EmpresasCliente WHERE EmpresaClienteId = @EmpresaClienteId";
 
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
@@ -79,10 +90,13 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                     if (rdr.Read())
                     {
                         var EmpresaCliente = new EmpresaCliente();
+                        EmpresaCliente.EmpresaClienteId = Convert.ToInt32(rdr["EmpresaClienteId"]);
                         EmpresaCliente.NomeDaEmpresa = Convert.ToString(rdr["NomeDaEmpresa"]);
                         EmpresaCliente.Cnpj = Convert.ToString(rdr["Cnpj"]);
                         EmpresaCliente.EnderecoDaEmpresa = Convert.ToString(rdr["EnderecoDaEmpresa"]);
+                        EmpresaCliente.DataDeInclusaoDaEmpresa = Convert.ToDateTime(rdr["DataDeInclusaoDaEmpresa"]);
                         EmpresaCliente.NomeGestorDoContrato = Convert.ToString(rdr["NomeGestorDoContrato"]);
+                        EmpresaCliente.EmailGestorDoContrato = Convert.ToString(rdr["EmailGestorDoContrato"]);
                         return EmpresaCliente;
                     }
                     else
@@ -92,11 +106,14 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
         }
         public List<EmpresaCliente> ListarEmpresaClientes(string? nomeDaEmpresa)
         {
-            string comandoSql = @"SELECT NomeDoEmpresaCliente,
+            string comandoSql = @"SELECT EmpresaClienteId,
+                                         NomeDaEmpresa,
                                          Cnpj,
-                                         EnderecoDaEmpresa,         
-                                         NomeGestorDoContrato
-                                 FROM    EmpresaClientes";
+                                         EnderecoDaEmpresa,   
+                                         DataDeInclusaoDaEmpresa,
+                                         NomeGestorDoContrato, 
+                                         EmailGestorDoContrato
+                                 FROM    EmpresasCliente";
 
             if (!string.IsNullOrWhiteSpace(nomeDaEmpresa))
                 comandoSql += " WHERE NomeDaEmpresa LIKE @NomeDaEmpresa";
@@ -104,7 +121,7 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
                 if (!string.IsNullOrWhiteSpace(nomeDaEmpresa))
-                    cmd.Parameters.AddWithValue("@NomeDoEmpresaCliente", "%" + nomeDaEmpresa + "%");
+                    cmd.Parameters.AddWithValue("@NomeDaEmpresa", "%" + nomeDaEmpresa + "%");
 
                 using (var rdr = cmd.ExecuteReader())
                 {
@@ -112,10 +129,13 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                     while (rdr.Read())
                     {
                         var EmpresaCliente = new EmpresaCliente();
+                        EmpresaCliente.EmpresaClienteId = Convert.ToInt32(rdr["EmpresaClienteId"]);
                         EmpresaCliente.NomeDaEmpresa = Convert.ToString(rdr["NomeDaEmpresa"]);
                         EmpresaCliente.Cnpj = Convert.ToString(rdr["Cnpj"]);
                         EmpresaCliente.EnderecoDaEmpresa = Convert.ToString(rdr["EnderecoDaEmpresa"]);
+                        EmpresaCliente.DataDeInclusaoDaEmpresa = Convert.ToDateTime(rdr["DataDeInclusaoDaEmpresa"]);
                         EmpresaCliente.NomeGestorDoContrato = Convert.ToString(rdr["NomeGestorDoContrato"]);
+                        EmpresaCliente.EmailGestorDoContrato = Convert.ToString(rdr["EmailGestorDoContrato"]);
                         EmpresaClientes.Add(EmpresaCliente);
                     }
                     return EmpresaClientes;
@@ -124,14 +144,14 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
         }
         public void Deletar(int empresaClienteId)
         {
-            string comandoSql = @"DELETE FROM EmpresaClientes 
+            string comandoSql = @"DELETE FROM EmpresasCliente
                                 WHERE EmpresaClienteId = @EmpresaClienteId;";
 
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
                 cmd.Parameters.AddWithValue("@EmpresaClienteId", empresaClienteId);
                 if (cmd.ExecuteNonQuery() == 0)
-                    throw new InvalidOperationException($"Nenhum registro afetado para o EmpresaCliente ID informado {empresaClienteId}");
+                    throw new InvalidOperationException($"Nenhum registro afetado para o EmpresasCliente ID informado {empresaClienteId}");
             }
         }
     }

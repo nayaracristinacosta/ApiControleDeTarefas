@@ -1,4 +1,5 @@
 ﻿using ApiControleDeTarefas.Domain.Models;
+using ApiControleDeTarefas.Domain.Models.Contratos;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
@@ -16,19 +17,20 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
         {
         }
 
-        public void Inserir(Tarefa model)
+        public void Inserir(TarefaRequest model)
         {
             string comandoSql = @"INSERT INTO Tarefas
                                     (FuncionarioId,EmpresaClienteId,Descricao,DataHorarioInicioTarefa,DataHorarioFimTarefa ) 
                                         VALUES
-                                    (@FuncionarioId,@EmpresaClienteId,@Descricao,@DataHorarioInicioTarefa,@DataHorarioFimTarefa);";
+                                    (@FuncionarioId,@EmpresaClienteId,@Descricao,@DataHorarioInicioTarefa, @DataHorarioFimTarefa);";
 
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
                 cmd.Parameters.AddWithValue("@FuncionarioId", model.FuncionarioId);
                 cmd.Parameters.AddWithValue("@EmpresaClienteId", model.EmpresaClienteId);
+                cmd.Parameters.AddWithValue("@Descricao", model.Descricao);
                 cmd.Parameters.AddWithValue("@DataHorarioInicioTarefa", model.DataHorarioInicioTarefa);
-                cmd.Parameters.AddWithValue("@DataHorarioFimTarefa", model.DataHorarioFimTarefa);
+                cmd.Parameters.AddWithValue("@DataHorarioFimTarefa", model.DataHorarioInicioTarefa);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -40,17 +42,20 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                                     FuncionarioId = @FuncionarioId,
                                     EmpresaClienteId = @EmpresaClienteId,
                                     Descricao = @Descricao,
-                                    DataHorarioInicioTarefa = @DataHorarioInicioTarefa,
-                                    DataHorarioFimTarefa = @DataHorarioFimTarefa
+                                    DataHorarioInicioTarefa = @DataHorarioInicioTarefa,                                    
+                                    DataHorarioFimTarefa = @DataHorarioFimTarefa,
+                                    TempoTotalGastoTarefa = @TempoTotalGastoTarefa
                                 WHERE TarefaId = @TarefaId;";
 
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
+                cmd.Parameters.AddWithValue("@TarefaId", model.TarefaId);
                 cmd.Parameters.AddWithValue("@FuncionarioId", model.FuncionarioId);
                 cmd.Parameters.AddWithValue("@EmpresaClienteId", model.EmpresaClienteId);
                 cmd.Parameters.AddWithValue("@Descricao", model.Descricao);
                 cmd.Parameters.AddWithValue("@DataHorarioInicioTarefa", model.DataHorarioInicioTarefa);
                 cmd.Parameters.AddWithValue("@DataHorarioFimTarefa", model.DataHorarioFimTarefa);
+                cmd.Parameters.AddWithValue("@TempoTotalGastoTarefa", model.TempoTotalGastoTarefa);
                 if (cmd.ExecuteNonQuery() == 0)
                     throw new InvalidOperationException($"Nenhum registro afetado para a Tarefa de ID {model.TarefaId}");
             }
@@ -67,11 +72,13 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
         }
         public Tarefa? Obter(int tarefaId)
         {
-            string comandoSql = @"SELECT FuncionarioId,
+            string comandoSql = @"SELECT TarefaId,
+                                         FuncionarioId,
                                          EmpresaClienteId,
                                          Descricao,         
                                          DataHorarioInicioTarefa,   
-                                         DataHorarioFimTarefa FROM Tarefas WHERE TarefaId = @TarefaId";
+                                         DataHorarioFimTarefa,
+                                         TempoTotalGastoTarefa FROM Tarefas WHERE TarefaId = @TarefaId";
 
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
@@ -82,11 +89,13 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                     if (rdr.Read())
                     {
                         var Tarefa = new Tarefa();
+                        Tarefa.TarefaId = Convert.ToInt32(rdr["TarefaId"]);
                         Tarefa.FuncionarioId = Convert.ToInt32(rdr["FuncionarioId"]);
                         Tarefa.EmpresaClienteId = Convert.ToInt32(rdr["EmpresaClienteId"]);
                         Tarefa.Descricao = Convert.ToString(rdr["Descricao"]);
                         Tarefa.DataHorarioInicioTarefa = Convert.ToDateTime(rdr["DataHorarioInicioTarefa"]);
                         Tarefa.DataHorarioFimTarefa = Convert.ToDateTime(rdr["DataHorarioFimTarefa"]);
+                        Tarefa.TempoTotalGastoTarefa = Convert.ToString(rdr["TempoTotalGastoTarefa"]);
                         return Tarefa;
                     }
                     else
@@ -96,12 +105,14 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
         }
         public List<Tarefa> ListarTarefas(string? descricao)
         {
-            string comandoSql = @"SELECT FuncionarioId,
+            string comandoSql = @"SELECT TarefaId,
+                                         FuncionarioId,
                                          EmpresaClienteId,
                                          Descricao,         
                                          DataHorarioInicioTarefa,   
-                                         DataHorarioFimTarefa     
-                                 FROM    Tarefas";
+                                         DataHorarioFimTarefa,
+                                         TempoTotalGastoTarefa
+                                         FROM Tarefas";
 
             if (!string.IsNullOrWhiteSpace(descricao))
                 comandoSql += " WHERE Descricao LIKE @Descricao";
@@ -117,11 +128,13 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                     while (rdr.Read())
                     {
                         var Tarefa = new Tarefa();
+                        Tarefa.TarefaId = Convert.ToInt32(rdr["TarefaId"]);
                         Tarefa.FuncionarioId = Convert.ToInt32(rdr["FuncionarioId"]);
                         Tarefa.EmpresaClienteId = Convert.ToInt32(rdr["EmpresaClienteId"]);
-                        Tarefa.Descricao = Convert.ToString(rdr["Descricao"]);
+                        Tarefa.Descricao = Convert.ToString(rdr["Descricao"]);      
                         Tarefa.DataHorarioInicioTarefa = Convert.ToDateTime(rdr["DataHorarioInicioTarefa"]);
-                        Tarefa.DataHorarioFimTarefa = Convert.ToDateTime(rdr["DataHorarioFimTarefa"]);
+                        Tarefa.DataHorarioFimTarefa = Convert.ToDateTime(rdr["DataHorarioInicioTarefa"]);
+                        Tarefa.TempoTotalGastoTarefa = Convert.ToString(rdr["TempoTotalGastoTarefa"]);
                         Tarefas.Add(Tarefa);
                     }
                     return Tarefas;

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2vgV1piOHao8jcsiVXUFj47rfQ4Evqh0exrRqvtFtCyCepPjPw6CfIlY3l0wzLZN1xq9ZWUZm6St2RYjDuEPOw==",
+  "dgSpecHash": "8xVeafERMyLRkZDssM/03az5ID9PZhM1rwkpKE2Ulti8sr54YOIm5PsmnlooTF16x0LAnY76H38njK1mj1ZQVg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.csproj",
+  "projectFilePath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

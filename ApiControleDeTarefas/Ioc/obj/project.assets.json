@@ -2343,11 +2343,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\Ioc\\Ioc.csproj",
+      "projectUniqueName": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\Ioc\\Ioc.csproj",
       "projectName": "Ioc",
-      "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\Ioc\\Ioc.csproj",
+      "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\Ioc\\Ioc.csproj",
       "packagesPath": "C:\\Users\\NayaraCosta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\Ioc\\obj\\",
+      "outputPath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\Ioc\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NayaraCosta\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2364,11 +2364,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\ApiControleDeTarefas.Repositories.csproj": {
-              "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\ApiControleDeTarefas.Repositories.csproj"
+            "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\ApiControleDeTarefas.Repositories.csproj": {
+              "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\ApiControleDeTarefas.Repositories.csproj"
             },
-            "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Services\\ApiControleDeTarefas.Services.csproj": {
-              "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Services\\ApiControleDeTarefas.Services.csproj"
+            "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.Services\\ApiControleDeTarefas.Services.csproj": {
+              "projectPath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.Services\\ApiControleDeTarefas.Services.csproj"
             }
           }
         }

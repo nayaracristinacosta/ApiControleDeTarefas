@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SldU60tWhvd/QtnTKzYisAF0mEW+ZsjypQFtt+OSx+AHqyw2qG0gGRkySoRcocQnX/SvCrd2ftfk3G0JW4k4tw==",
+  "dgSpecHash": "2sAX1eYoI/wYcsXCLXy+iyCDIqB5B78OFCwjR+0QsRRcSkJdxirqAUFhC4UILzjIBpBAwIlfVZc0vQXB2hBfjw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\ApiControleDeTarefas.Repositories.csproj",
+  "projectFilePath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.Repositories\\ApiControleDeTarefas.Repositories.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

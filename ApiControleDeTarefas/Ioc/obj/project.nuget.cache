@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BOtHe740/Zi4Jn8g5LDCzsGyTyaycXwMrFSHszfeUQMaq1fclufljipSfV8EnZI2DIK1ihCS8KkueIGt5XSAeg==",
+  "dgSpecHash": "qKeiwXBuU90/jdU06krBsL3UjidxQh86eIxFDYjqn1nGlwJjyQDspORh5uc1d4bK+mUDA7pjl7vDZllQi0c9sA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\Ioc\\Ioc.csproj",
+  "projectFilePath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\Ioc\\Ioc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

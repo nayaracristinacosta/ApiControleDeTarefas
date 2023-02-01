@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zJJnKal+bBS7D9xJCUQEx7BGeNhmh0LvEj+Zyq+KEv/qHRCvXUtKv2B8nq6xGi2vdaLHDD//JkV7r8qpUXv6GQ==",
+  "dgSpecHash": "WdU1xZMoJtyFseCQVZ/7ozLEMED2PG9ZuRTgk9QBlNk45YP0Eat1suZ9NMQi9mfSnZeSjtdGVbvyjVN4Q3HTDg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NayaraCosta\\Desktop\\nayaracristinacosta\\ApiControleDeTarefas\\ApiControleDeTarefas.Services\\ApiControleDeTarefas.Services.csproj",
+  "projectFilePath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.Services\\ApiControleDeTarefas.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

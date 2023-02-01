@@ -17,6 +17,7 @@ namespace ApiControleDeTarefas.Domain.Models
         public string EmailDoFuncionario { get; set; }
         public string SenhaDoFuncionario { get; set; }
         public int Perfil { get; set; }
+        public int TokenEmail { get; set; }
 
     }
 }

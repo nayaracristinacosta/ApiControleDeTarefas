@@ -16,13 +16,13 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
         }
         public Funcionario? ObterFuncionarioPorCredenciais(string email, string senha)
         {
-            string comandoSql = @"SELECT EmailDoFuncionario, NomeDoFuncionario, Perfil FROM Funcionarios 
-                                    WHERE u.EmailFuncionario = @EmailFuncionario AND u.SenhaFuncionario = @SenhaFuncionario";
+            string comandoSql = @"SELECT EmailDoFuncionario,NomeDoFuncionario, Perfil FROM Funcionarios 
+                                    WHERE EmailDoFuncionario = @EmailDoFuncionario AND SenhaDoFuncionario = @SenhaDoFuncionario";
 
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
-                cmd.Parameters.AddWithValue("@EmailFuncionario", email);
-                cmd.Parameters.AddWithValue("@SenhaFuncionario", senha);
+                cmd.Parameters.AddWithValue("@EmailDoFuncionario", email);
+                cmd.Parameters.AddWithValue("@SenhaDoFuncionario", senha);
 
                 using (var rdr = cmd.ExecuteReader())
                 {
@@ -31,8 +31,8 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                         return new Funcionario()
                         {
                             NomeDoFuncionario = rdr["NomeDoFuncionario"].ToString(),
-                            EmailDoFuncionario = rdr["EmailFuncionario"].ToString(),
-                            Perfil = Convert.ToInt32(rdr["CargoId"])
+                            EmailDoFuncionario = rdr["EmailDoFuncionario"].ToString(),
+                            Perfil = Convert.ToInt32(rdr["Perfil"])
                         };
                     }
                     else
@@ -77,6 +77,7 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
 
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
+                cmd.Parameters.AddWithValue("@FuncionarioId", model.FuncionarioId);
                 cmd.Parameters.AddWithValue("@NomeDoFuncionario", model.NomeDoFuncionario);
                 cmd.Parameters.AddWithValue("@NascimentoDoFuncionario", model.NascimentoDoFuncionario);
                 cmd.Parameters.AddWithValue("@DataDeAdmissao", model.DataDeAdmissao);
@@ -99,9 +100,32 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                 return Convert.ToBoolean(cmd.ExecuteScalar());
             }
         }
+
+        public bool SeExisteCpf(string cpf)
+        {
+            string comandoSql = @"SELECT COUNT(Cpf) as total FROM Funcionarios WHERE Cpf = @Cpf";
+
+            using (var cmd = new SqlCommand(comandoSql, _conn))
+            {
+                cmd.Parameters.AddWithValue("@Cpf", cpf);
+                return Convert.ToBoolean(cmd.ExecuteScalar());
+            }
+        }
+
+        public bool SeExisteEmail(string emailDoFuncionario)
+        {
+            string comandoSql = @"SELECT COUNT(EmailDoFuncionario) as total FROM Funcionarios WHERE EmailDoFuncionario = @EmailDoFuncionario";
+
+            using (var cmd = new SqlCommand(comandoSql, _conn))
+            {
+                cmd.Parameters.AddWithValue("@EmailDoFuncionario", emailDoFuncionario);
+                return Convert.ToBoolean(cmd.ExecuteScalar());
+            }
+        }
         public Funcionario? Obter(int FuncionarioId)
         {
-            string comandoSql = @"SELECT NomeDoFuncionario,
+            string comandoSql = @"SELECT FuncionarioId,
+                                         NomeDoFuncionario,
                                          NascimentoDoFuncionario,
                                          DataDeAdmissao,         
                                          Cpf,    
@@ -119,8 +143,9 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                     if (rdr.Read())
                     {
                         var Funcionario = new Funcionario();
+                        Funcionario.FuncionarioId = Convert.ToInt32(rdr["FuncionarioId"]);
                         Funcionario.NomeDoFuncionario = Convert.ToString(rdr["NomeDoFuncionario"]);
-                        Funcionario.NascimentoDoFuncionario = Convert.ToDateTime(rdr["NascimentoFuncionario"]); ;
+                        Funcionario.NascimentoDoFuncionario = Convert.ToDateTime(rdr["NascimentoDoFuncionario"]); ;
                         Funcionario.DataDeAdmissao = Convert.ToDateTime(rdr["DataDeAdmissao"]);
                         Funcionario.Cpf = Convert.ToString(rdr["Cpf"]);
                         Funcionario.CelularDoFuncionario = Convert.ToString(rdr["CelularDoFuncionario"]);
@@ -136,7 +161,8 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
         }
         public List<Funcionario> ListarFuncionarios(string? nomeDoFuncionario)
         {
-            string comandoSql = @"SELECT NomeDoFuncionario,
+            string comandoSql = @"SELECT FuncionarioId,
+                                         NomeDoFuncionario,
                                          NascimentoDoFuncionario,
                                          DataDeAdmissao,         
                                          Cpf,    
@@ -159,8 +185,9 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                     while (rdr.Read())
                     {
                         var Funcionario = new Funcionario();
+                        Funcionario.FuncionarioId = Convert.ToInt32(rdr["FuncionarioId"]);
                         Funcionario.NomeDoFuncionario = Convert.ToString(rdr["NomeDoFuncionario"]);
-                        Funcionario.NascimentoDoFuncionario = Convert.ToDateTime(rdr["NascimentoFuncionario"]); ;
+                        Funcionario.NascimentoDoFuncionario = Convert.ToDateTime(rdr["NascimentoDoFuncionario"]); ;
                         Funcionario.DataDeAdmissao = Convert.ToDateTime(rdr["DataDeAdmissao"]);
                         Funcionario.Cpf = Convert.ToString(rdr["Cpf"]);
                         Funcionario.CelularDoFuncionario = Convert.ToString(rdr["CelularDoFuncionario"]);

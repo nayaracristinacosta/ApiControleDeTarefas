@@ -5,6 +5,8 @@ using ApiControleDeTarefas.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ApiControleDeTarefas.Domain.Models;
+using ApiControleDeTarefas.Domain.Models.Contratos;
+
 namespace ApiControleDeTarefas.Controllers
 {
     [Authorize]
@@ -49,9 +51,9 @@ namespace ApiControleDeTarefas.Controllers
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1,2")]
         [HttpPost("Tarefa")]
-        public IActionResult Inserir([FromBody] Tarefa model)
+        public IActionResult Inserir([FromBody] TarefaRequest model)
         {
             try
             {
@@ -73,7 +75,7 @@ namespace ApiControleDeTarefas.Controllers
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1,2")]
         [HttpDelete("Tarefa/{tarefaiId}")]
         public IActionResult Deletar([FromRoute] int tarefaiId)
         {
@@ -87,7 +89,7 @@ namespace ApiControleDeTarefas.Controllers
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1,2")]
         [HttpPut("Tarefa")]
         public IActionResult Atualizar([FromBody] Tarefa model)
         {

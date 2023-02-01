@@ -17,13 +17,11 @@ namespace Ioc
             services.AddScoped<FuncionarioRepositorio, FuncionarioRepositorio>();
             services.AddScoped<EmpresaClienteRepositorio, EmpresaClienteRepositorio>();
             services.AddScoped<TarefaRepositorio, TarefaRepositorio>();
-            services.AddScoped<TarefaExtraRepositorio, TarefaExtraRepositorio>();
-
+           
             //services
             services.AddScoped<FuncionarioService, FuncionarioService>();
             services.AddScoped<EmpresaClienteService, EmpresaClienteService>();
-            services.AddScoped<TarefaService, TarefaService>();
-            services.AddScoped<TarefaExtraService, TarefaExtraService>();
+            services.AddScoped<TarefaService, TarefaService>();          
             services.AddScoped<AutorizacaoService, AutorizacaoService>();
         }
     }
