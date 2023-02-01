@@ -89,6 +89,7 @@ namespace ApiControleDeTarefas.Services
             }
         }
 
+        #region Validar Model Funcionario
         private static void ValidarModelFuncionario(Funcionario model, bool isUpdate = false)
         {
             #region Valida Model
@@ -194,6 +195,7 @@ namespace ApiControleDeTarefas.Services
             #endregion
 
         }
+        #endregion
 
         #region Metódo Remove Mascara de Telefone
         private static string RemoverMascaraTelefone(string phoneNumber)
@@ -413,6 +415,7 @@ namespace ApiControleDeTarefas.Services
         }
         #endregion
 
+        #region Valida se existe CPF na base
         public void ValidaCpf(string cpf)
         {
             bool isCpfValid = _repositorio.SeExisteCpf(cpf);
@@ -420,7 +423,9 @@ namespace ApiControleDeTarefas.Services
             if (isCpfValid)
                 throw new ValidacaoException("O Cpf informado já está cadastrado na base");
         }
+        #endregion
 
+        #region Valida se existe Email na base
         public void ValidaEmailNaBase(string email)
         {
             bool isCpfValid = _repositorio.SeExisteEmail(email);
@@ -429,6 +434,6 @@ namespace ApiControleDeTarefas.Services
                 throw new ValidacaoException("Email já cadastrado!");
 
         }
-
+        #endregion
     }
 }
