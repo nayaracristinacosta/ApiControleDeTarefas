@@ -39,7 +39,7 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
         {
             string comandoSql = @"UPDATE EmpresasCliente 
                                 SET 
-                                    NomeDaEmpresa = @NomeDaEmpresa,
+                                    RazaoSocial = @RazaoSocial,
                                     Cnpj = @Cnpj,
                                     EnderecoDaEmpresa = @EnderecoDaEmpresa,
                                     DataDeInclusaoDaEmpresa = @DataDeInclusaoDaEmpresa,                                    
@@ -50,7 +50,7 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
                 cmd.Parameters.AddWithValue("@EmpresaClienteId", model.EmpresaClienteId);
-                cmd.Parameters.AddWithValue("@NomeDaEmpresa", model.NomeDaEmpresa);
+                cmd.Parameters.AddWithValue("@RazaoSocial", model.RazaoSocial);
                 cmd.Parameters.AddWithValue("@Cnpj", model.Cnpj);
                 cmd.Parameters.AddWithValue("@EnderecoDaEmpresa", model.EnderecoDaEmpresa);
                 cmd.Parameters.AddWithValue("@DataDeInclusaoDaEmpresa", model.DataDeInclusaoDaEmpresa);
@@ -70,10 +70,31 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                 return Convert.ToBoolean(cmd.ExecuteScalar());
             }
         }
+
+        public bool SeExisteEmailDoGestor(string emailDoGestor)
+        {
+            string comandoSql = @"SELECT COUNT(EmailGestorDoContrato) as total FROM EmpresasCliente WHERE EmailGestorDoContrato = @EmailGestorDoContrato";
+
+            using (var cmd = new SqlCommand(comandoSql, _conn))
+            {
+                cmd.Parameters.AddWithValue("@EmailGestorDoContrato", emailDoGestor);
+                return Convert.ToBoolean(cmd.ExecuteScalar());
+            }
+        }
+        public bool SeExisteCnpjDaEmpresa(string cnpj)
+        {
+            string comandoSql = @"SELECT COUNT(Cnpj) as total FROM EmpresasCliente WHERE Cnpj = @Cnpj";
+
+            using (var cmd = new SqlCommand(comandoSql, _conn))
+            {
+                cmd.Parameters.AddWithValue("@Cnpj", cnpj);
+                return Convert.ToBoolean(cmd.ExecuteScalar());
+            }
+        }
         public EmpresaCliente? Obter(int empresaClienteId)
         {
             string comandoSql = @"SELECT EmpresaClienteId,
-                                         NomeDaEmpresa,
+                                         RazaoSocial,
                                          Cnpj,
                                          EnderecoDaEmpresa,   
                                          DataDeInclusaoDaEmpresa,
@@ -91,7 +112,7 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                     {
                         var EmpresaCliente = new EmpresaCliente();
                         EmpresaCliente.EmpresaClienteId = Convert.ToInt32(rdr["EmpresaClienteId"]);
-                        EmpresaCliente.NomeDaEmpresa = Convert.ToString(rdr["NomeDaEmpresa"]);
+                        EmpresaCliente.RazaoSocial = Convert.ToString(rdr["RazaoSocial"]);
                         EmpresaCliente.Cnpj = Convert.ToString(rdr["Cnpj"]);
                         EmpresaCliente.EnderecoDaEmpresa = Convert.ToString(rdr["EnderecoDaEmpresa"]);
                         EmpresaCliente.DataDeInclusaoDaEmpresa = Convert.ToDateTime(rdr["DataDeInclusaoDaEmpresa"]);
@@ -104,10 +125,11 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                 }
             }
         }
-        public List<EmpresaCliente> ListarEmpresaClientes(string? nomeDaEmpresa)
+        public List<EmpresaCliente> ListarEmpresaClientes(string? razaoSocial)
         {
-            string comandoSql = @"SELECT EmpresaClienteId,
-                                         NomeDaEmpresa,
+            string comandoSql = @"SELECT TarefaId,
+                                         EmpresaClienteId,
+                                         RazaoSocial,
                                          Cnpj,
                                          EnderecoDaEmpresa,   
                                          DataDeInclusaoDaEmpresa,
@@ -115,13 +137,13 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                                          EmailGestorDoContrato
                                  FROM    EmpresasCliente";
 
-            if (!string.IsNullOrWhiteSpace(nomeDaEmpresa))
-                comandoSql += " WHERE NomeDaEmpresa LIKE @NomeDaEmpresa";
+            if (!string.IsNullOrWhiteSpace(razaoSocial))
+                comandoSql += " WHERE RazaoSocial LIKE @RazaoSocial";
 
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
-                if (!string.IsNullOrWhiteSpace(nomeDaEmpresa))
-                    cmd.Parameters.AddWithValue("@NomeDaEmpresa", "%" + nomeDaEmpresa + "%");
+                if (!string.IsNullOrWhiteSpace(razaoSocial))
+                    cmd.Parameters.AddWithValue("@RazaoSocial", "%" + razaoSocial + "%");
 
                 using (var rdr = cmd.ExecuteReader())
                 {
@@ -130,7 +152,8 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                     {
                         var EmpresaCliente = new EmpresaCliente();
                         EmpresaCliente.EmpresaClienteId = Convert.ToInt32(rdr["EmpresaClienteId"]);
-                        EmpresaCliente.NomeDaEmpresa = Convert.ToString(rdr["NomeDaEmpresa"]);
+                        EmpresaCliente.EmpresaClienteId = Convert.ToInt32(rdr["EmpresaClienteId"]);
+                        EmpresaCliente.RazaoSocial = Convert.ToString(rdr["NomeDaEmpresa"]);
                         EmpresaCliente.Cnpj = Convert.ToString(rdr["Cnpj"]);
                         EmpresaCliente.EnderecoDaEmpresa = Convert.ToString(rdr["EnderecoDaEmpresa"]);
                         EmpresaCliente.DataDeInclusaoDaEmpresa = Convert.ToDateTime(rdr["DataDeInclusaoDaEmpresa"]);

@@ -428,9 +428,9 @@ namespace ApiControleDeTarefas.Services
         #region Valida se existe Email na base
         public void ValidaEmailNaBase(string email)
         {
-            bool isCpfValid = _repositorio.SeExisteEmail(email);
+            bool isEmailValid = _repositorio.SeExisteEmail(email);
 
-            if (isCpfValid)
+            if (isEmailValid)
                 throw new ValidacaoException("Email já cadastrado!");
 
         }

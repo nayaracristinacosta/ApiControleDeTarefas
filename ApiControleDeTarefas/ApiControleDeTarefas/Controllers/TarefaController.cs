@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ApiControleDeTarefas.Domain.Models;
 using ApiControleDeTarefas.Domain.Models.Contratos;
+using System.Security.Claims;
 
 namespace ApiControleDeTarefas.Controllers
 {
@@ -29,6 +30,8 @@ namespace ApiControleDeTarefas.Controllers
         [HttpGet("Tarefa")]
         public IActionResult Listar([FromQuery] string? descricao)
         {
+            //var identity = HttpContext.User.Identity as ClaimsIdentity;
+            //var login = identity.FindFirst("login").Value;
             return StatusCode(200, _service.Listar(descricao));
         }
 

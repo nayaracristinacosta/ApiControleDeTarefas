@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ApiControleDeTarefas.Controllers
 {
-    //[AllowAnonymous]
+    [AllowAnonymous]
     [ApiController]
     public class AutorizacaoController : ControllerBase
     {

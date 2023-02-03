@@ -10,8 +10,11 @@ namespace ApiControleDeTarefas.Domain.Models.Contratos
     {
         public int FuncionarioId { get; set; }
         public int EmpresaClienteId { get; set; }
+        public string AssuntoTarefa { get; set; }
         public string Descricao { get; set; }
+        public TipoDaTarefa TipoDaTarefa { get; set; }
         public DateTime DataHorarioInicioTarefa { get; set; }
+        public DateTime DataHorarioFimTarefa { get; set; }
         
     }
 }

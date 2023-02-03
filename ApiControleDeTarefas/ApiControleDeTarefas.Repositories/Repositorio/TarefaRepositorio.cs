@@ -20,15 +20,17 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
         public void Inserir(TarefaRequest model)
         {
             string comandoSql = @"INSERT INTO Tarefas
-                                    (FuncionarioId,EmpresaClienteId,Descricao,DataHorarioInicioTarefa,DataHorarioFimTarefa ) 
+                                    (FuncionarioId,EmpresaClienteId,AssuntoTarefa,Descricao,TipoDaTarefa,DataHorarioInicioTarefa,DataHorarioFimTarefa ) 
                                         VALUES
-                                    (@FuncionarioId,@EmpresaClienteId,@Descricao,@DataHorarioInicioTarefa, @DataHorarioFimTarefa);";
+                                    (@FuncionarioId,@EmpresaClienteId,@AssuntoTarefa,@Descricao,@TipoDaTarefa,@DataHorarioInicioTarefa, @DataHorarioFimTarefa);";
 
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
                 cmd.Parameters.AddWithValue("@FuncionarioId", model.FuncionarioId);
                 cmd.Parameters.AddWithValue("@EmpresaClienteId", model.EmpresaClienteId);
+                cmd.Parameters.AddWithValue("@AssuntoTarefa", model.AssuntoTarefa);
                 cmd.Parameters.AddWithValue("@Descricao", model.Descricao);
+                cmd.Parameters.AddWithValue("@TipoDaTarefa", model.TipoDaTarefa);
                 cmd.Parameters.AddWithValue("@DataHorarioInicioTarefa", model.DataHorarioInicioTarefa);
                 cmd.Parameters.AddWithValue("@DataHorarioFimTarefa", model.DataHorarioInicioTarefa);
                 cmd.ExecuteNonQuery();
@@ -41,7 +43,9 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                                 SET 
                                     FuncionarioId = @FuncionarioId,
                                     EmpresaClienteId = @EmpresaClienteId,
+                                    AssuntoTarefa = @AssuntoTarefa,
                                     Descricao = @Descricao,
+                                    TipoDaTarefa = @TipoDaTarefa,
                                     DataHorarioInicioTarefa = @DataHorarioInicioTarefa,                                    
                                     DataHorarioFimTarefa = @DataHorarioFimTarefa,
                                     TempoTotalGastoTarefa = @TempoTotalGastoTarefa
@@ -52,7 +56,11 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                 cmd.Parameters.AddWithValue("@TarefaId", model.TarefaId);
                 cmd.Parameters.AddWithValue("@FuncionarioId", model.FuncionarioId);
                 cmd.Parameters.AddWithValue("@EmpresaClienteId", model.EmpresaClienteId);
+       {
+}
+         cmd.Parameters.AddWithValue("@AssuntoTarefa", model.AssuntoTarefa);
                 cmd.Parameters.AddWithValue("@Descricao", model.Descricao);
+                cmd.Parameters.AddWithValue("@TipoDaTarefa", model.TipoDaTarefa);
                 cmd.Parameters.AddWithValue("@DataHorarioInicioTarefa", model.DataHorarioInicioTarefa);
                 cmd.Parameters.AddWithValue("@DataHorarioFimTarefa", model.DataHorarioFimTarefa);
                 cmd.Parameters.AddWithValue("@TempoTotalGastoTarefa", model.TempoTotalGastoTarefa);
@@ -70,12 +78,36 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                 return Convert.ToBoolean(cmd.ExecuteScalar());
             }
         }
+        public bool SeExisteFuncionarioId(int funcionarioId)
+        {
+            string comandoSql = @"SELECT COUNT(FuncionarioId) as total FROM Funcionarios WHERE FuncionarioId = @FuncionarioId";
+
+            using (var cmd = new SqlCommand(comandoSql, _conn))
+            {
+                cmd.Parameters.AddWithValue("@FuncionarioId", funcionarioId);
+                return Convert.ToBoolean(cmd.ExecuteScalar());
+            }
+        }
+
+        public bool SeExisteEmpresaId(int empresaId)
+        {
+            string comandoSql = @"SELECT COUNT(EmpresaClienteId) as total FROM EmpresasCliente WHERE EmpresaClienteId = @EmpresaClienteId";
+
+            using (var cmd = new SqlCommand(comandoSql, _conn))
+            {
+                cmd.Parameters.AddWithValue("@EmpresaClienteId", empresaId);
+                return Convert.ToBoolean(cmd.ExecuteScalar());
+            }
+        }
+
         public Tarefa? Obter(int tarefaId)
         {
             string comandoSql = @"SELECT TarefaId,
                                          FuncionarioId,
                                          EmpresaClienteId,
-                                         Descricao,         
+                                         AssuntoTarefa,
+                                         Descricao,
+                                         TipoDaTarefa,
                                          DataHorarioInicioTarefa,   
                                          DataHorarioFimTarefa,
                                          TempoTotalGastoTarefa FROM Tarefas WHERE TarefaId = @TarefaId";
@@ -92,7 +124,9 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                         Tarefa.TarefaId = Convert.ToInt32(rdr["TarefaId"]);
                         Tarefa.FuncionarioId = Convert.ToInt32(rdr["FuncionarioId"]);
                         Tarefa.EmpresaClienteId = Convert.ToInt32(rdr["EmpresaClienteId"]);
+                        Tarefa.AssuntoTarefa = Convert.ToString(rdr["AssuntoTarefa"]);
                         Tarefa.Descricao = Convert.ToString(rdr["Descricao"]);
+                        Tarefa.TipoDaTarefa = (TipoDaTarefa)Convert.ToInt32(rdr["TipoDaTarefa"]);
                         Tarefa.DataHorarioInicioTarefa = Convert.ToDateTime(rdr["DataHorarioInicioTarefa"]);
                         Tarefa.DataHorarioFimTarefa = Convert.ToDateTime(rdr["DataHorarioFimTarefa"]);
                         Tarefa.TempoTotalGastoTarefa = Convert.ToString(rdr["TempoTotalGastoTarefa"]);
@@ -108,7 +142,9 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
             string comandoSql = @"SELECT TarefaId,
                                          FuncionarioId,
                                          EmpresaClienteId,
-                                         Descricao,         
+                                         AssuntoTarefa,                                            
+                                         Descricao,   
+                                         TipoDaTarefa,
                                          DataHorarioInicioTarefa,   
                                          DataHorarioFimTarefa,
                                          TempoTotalGastoTarefa
@@ -131,9 +167,11 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                         Tarefa.TarefaId = Convert.ToInt32(rdr["TarefaId"]);
                         Tarefa.FuncionarioId = Convert.ToInt32(rdr["FuncionarioId"]);
                         Tarefa.EmpresaClienteId = Convert.ToInt32(rdr["EmpresaClienteId"]);
-                        Tarefa.Descricao = Convert.ToString(rdr["Descricao"]);      
+                        Tarefa.AssuntoTarefa = Convert.ToString(rdr["AssuntoTarefa"]);
+                        Tarefa.Descricao = Convert.ToString(rdr["Descricao"]);
+                        Tarefa.TipoDaTarefa = (TipoDaTarefa)Convert.ToInt32(rdr["TipoDaTarefa"]);
                         Tarefa.DataHorarioInicioTarefa = Convert.ToDateTime(rdr["DataHorarioInicioTarefa"]);
-                        Tarefa.DataHorarioFimTarefa = Convert.ToDateTime(rdr["DataHorarioInicioTarefa"]);
+                        Tarefa.DataHorarioFimTarefa = Convert.ToDateTime(rdr["DataHorarioFimTarefa"]);
                         Tarefa.TempoTotalGastoTarefa = Convert.ToString(rdr["TempoTotalGastoTarefa"]);
                         Tarefas.Add(Tarefa);
                     }

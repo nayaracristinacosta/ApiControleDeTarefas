@@ -19,12 +19,12 @@ namespace ApiControleDeTarefas.Services
             _repositorio = repositorio;
         }
 
-        public List<EmpresaCliente> Listar(string? descricao)
+        public List<EmpresaCliente> Listar(string? razaoSocial)
         {
             try
             {
                 _repositorio.AbrirConexao();
-                return _repositorio.ListarEmpresaClientes(descricao);
+                return _repositorio.ListarEmpresaClientes(razaoSocial);
             }
             finally
             {
@@ -72,7 +72,11 @@ namespace ApiControleDeTarefas.Services
         {
             try
             {
+
                 _repositorio.AbrirConexao();
+                ValidaEmailGestorDoContrato(model.EmailGestorDoContrato);
+                ValidaCnpjDaEmpresa(model.Cnpj);
+                ValidarModelEmpresaCliente(model);             
                 _repositorio.Inserir(model);
             }
             finally
@@ -81,14 +85,16 @@ namespace ApiControleDeTarefas.Services
             }
         }
 
-        private static void ValidarModelEmpresaCliente(EmpresaCliente model, bool isUpdate = false)
+        #region Valida Model Empresa Cliente
+        private static void ValidarModelEmpresaCliente(EmpresaClienteRequest model, bool isUpdate = false)
+        #endregion
         {
             #region Valida Model
             if (model is null)
                 throw new ValidacaoException("O json está mal formatado, ou foi enviado vazio.");
             #endregion
 
-            #region Valida Nome
+            #region Valida Nome da Empresa
 
             if (model.NomeDaEmpresa.Trim().Length < 3 || model.NomeDaEmpresa.Trim().Length > 255)
                 throw new ValidacaoException("O Nome da empresa não pode estar vazio e precisa ter entre 3 a 255 caracteres.");
@@ -100,21 +106,31 @@ namespace ApiControleDeTarefas.Services
 
             #endregion
 
+            #region Valida Cnpj
+
             var isCnpjValido = ValidaCnpj(model.Cnpj);
             if (!isCnpjValido)
-                throw new ValidacaoException("O Nome do Funcionário é obrigatório.");
+                throw new ValidacaoException("O CNPJ é obrigatório, gentileza informar.");
+            #endregion
+
+            #region Valida Endereço da Empresa
 
             if (model.EnderecoDaEmpresa.Trim().Length < 3 || model.EnderecoDaEmpresa.Trim().Length > 255)
-                throw new ValidacaoException("O endereço da empresa não pode estar vazio e precisa ter entre 3 a 255 caracteres.");
+                throw new ValidacaoException("O Endereço da empresa não pode estar vazio e precisa ter entre 3 a 255 caracteres.");            
 
             if (string.IsNullOrWhiteSpace(model.EnderecoDaEmpresa))
                 throw new ValidacaoException("O endereço da empresa é obrigatório.");
+            #endregion
+
+            #region Valida Nome do Gestor do Contrato
 
             if (model.NomeGestorDoContrato.Trim().Length < 3 || model.NomeGestorDoContrato.Trim().Length > 255)
                 throw new ValidacaoException("O nome do gestor do contrato não pode estar vazio e precisa ter entre 3 a 255 caracteres.");
 
             if (string.IsNullOrWhiteSpace(model.NomeGestorDoContrato))
                 throw new ValidacaoException("O nome do gestor do contrato é obrigatório.");
+
+            #endregion
 
             #region Valida Data de inclusão da empresa
 
@@ -131,17 +147,11 @@ namespace ApiControleDeTarefas.Services
             if(!isEmailValido)
                 throw new ValidacaoException("O E-mail informado está incorreto ou não é válido.");
 
+
             #endregion
         }
 
-        public int EmpresaClienteId { get; set; }
-        public string NomeDaEmpresa { get; set; }
-        public string Cnpj { get; set; }
-        public string EnderecoDaEmpresa { get; set; }
-        public DateTime DataDeInclusaoDaEmpresa { get; set; }
-        public string NomeGestorDoContrato { get; set; }
-        public string EmailGestorDoContrato { get; set; }
-
+        #region Metódo Valida Cnpj
         public static bool ValidaCnpj(string cnpj)
 
         {
@@ -243,8 +253,30 @@ namespace ApiControleDeTarefas.Services
                 return false;
 
             }
+         
+        }
+        #endregion
+
+        #region Metódo Valida se existe CNPJ na base
+        public void ValidaCnpjDaEmpresa(string cnpj)
+        {
+            bool isCnpjlValid = _repositorio.SeExisteCnpjDaEmpresa(cnpj);
+
+            if (isCnpjlValid)
+                throw new ValidacaoException("CNPJ já cadastrado no Sistema!");
 
         }
+        #endregion
 
+        #region Metódo Valida se existe Email na base
+        public void ValidaEmailGestorDoContrato(string email)
+        {
+            bool isEmailValid = _repositorio.SeExisteEmailDoGestor(email);
+
+            if (isEmailValid)
+                throw new ValidacaoException("Email já cadastrado no Sistema!");
+
+        }
+        #endregion
     }
 }

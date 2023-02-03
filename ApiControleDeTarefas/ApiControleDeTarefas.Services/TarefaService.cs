@@ -1,4 +1,5 @@
-﻿using ApiControleDeTarefas.Domain.Models;
+﻿using ApiControleDeTarefas.Domain.Exceptions;
+using ApiControleDeTarefas.Domain.Models;
 using ApiControleDeTarefas.Domain.Models.Contratos;
 using ApiControleDeTarefas.Repositories.Repositorio;
 using System;
@@ -74,6 +75,9 @@ namespace ApiControleDeTarefas.Services
             try
             {
                 _repositorio.AbrirConexao();
+                ValidaSeExisteFuncionarioId(model.FuncionarioId);
+                ValidaSeExisteEmpresaId(model.EmpresaClienteId);
+                ValidarModelTarefa(model);
                 _repositorio.Inserir(model);
             }
             finally
@@ -90,7 +94,42 @@ namespace ApiControleDeTarefas.Services
             return model;
         }
 
+        #region Valida Model Tarefa
+        private static void ValidarModelTarefa(TarefaRequest model, bool isUpdate = false)      
+        {
+            #region Valida Model
+            if (model is null)
+                throw new ValidacaoException("O json está mal formatado, ou foi enviado vazio.");
+            #endregion
 
+            #region Valida Descrição
+            if (model.Descricao.Trim().Length < 3 || model.Descricao.Trim().Length > 255)
+                throw new ValidacaoException("A Descrição não pode estar vazia e precisa ter entre 3 a 255 caracteres.");
+            #endregion
+        }
+        #endregion
 
+        #region Valida FuncionarioId
+        public void ValidaSeExisteFuncionarioId(int funcionarioId)
+        {
+            bool isFuncionarioIdValid = _repositorio.SeExisteFuncionarioId(funcionarioId);
+
+            if (!isFuncionarioIdValid)
+                throw new ValidacaoException("Id do Funcionário não localizado no Sistema!");
+
+        }
+        #endregion
+
+        #region Valida EmpresaId
+        public void ValidaSeExisteEmpresaId(int empresaId)
+        {
+            bool isEmpresaIdValid = _repositorio.SeExisteEmpresaId(empresaId);
+
+            if (!isEmpresaIdValid)
+                throw new ValidacaoException("Id da Empresa não localizado no Sistema!");
+
+        }
+        #endregion
     }
 }
+
