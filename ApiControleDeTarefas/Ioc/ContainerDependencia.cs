@@ -23,6 +23,7 @@ namespace Ioc
             services.AddScoped<EmpresaClienteService, EmpresaClienteService>();
             services.AddScoped<TarefaService, TarefaService>();          
             services.AddScoped<AutorizacaoService, AutorizacaoService>();
+            services.AddScoped<RelatorioService, RelatorioService>();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace ApiControleDeTarefas.Domain.Models
         QuebraDeContexto,
         Tarefa
     };
+
     public class Tarefa
     {
         public int TarefaId { get; set; }

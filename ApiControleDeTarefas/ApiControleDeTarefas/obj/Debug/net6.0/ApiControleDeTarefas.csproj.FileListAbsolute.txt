@@ -176,3 +176,6 @@ C:\Users\NayaraCosta\Desktop\ApiControleDeTarefas\ApiControleDeTarefas\ApiContro
 C:\Users\NayaraCosta\Desktop\ApiControleDeTarefas\ApiControleDeTarefas\ApiControleDeTarefas\obj\Debug\net6.0\ApiControleDeTarefas.pdb
 C:\Users\NayaraCosta\Desktop\ApiControleDeTarefas\ApiControleDeTarefas\ApiControleDeTarefas\obj\Debug\net6.0\ApiControleDeTarefas.genruntimeconfig.cache
 C:\Users\NayaraCosta\Desktop\ApiControleDeTarefas\ApiControleDeTarefas\ApiControleDeTarefas\obj\Debug\net6.0\ref\ApiControleDeTarefas.dll
+C:\Users\NayaraCosta\Desktop\ApiControleDeTarefas\ApiControleDeTarefas\ApiControleDeTarefas\bin\Debug\net6.0\MailKit.dll
+C:\Users\NayaraCosta\Desktop\ApiControleDeTarefas\ApiControleDeTarefas\ApiControleDeTarefas\bin\Debug\net6.0\MimeKit.dll
+C:\Users\NayaraCosta\Desktop\ApiControleDeTarefas\ApiControleDeTarefas\ApiControleDeTarefas\bin\Debug\net6.0\BouncyCastle.Crypto.dll

@@ -22,6 +22,8 @@ namespace ApiControleDeTarefas.Services
             _config = configuration;
         }
 
+
+
         public Token Login(FuncionarioRequest model)
         {
             var usuario = _usuarioService.ObterUsuarioPorCredenciais(model.EmailFuncionario, model.SenhaFuncionario);

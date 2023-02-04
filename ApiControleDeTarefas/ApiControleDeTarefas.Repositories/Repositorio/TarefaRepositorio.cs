@@ -191,5 +191,84 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                     throw new InvalidOperationException($"Nenhum registro afetado para o Tarefa ID informado {tarefaId}");
             }
         }
+
+
+        public List<Tarefa> ObterRelarotio(DateTime dataInicial, DateTime dataFinal)
+        {
+            string comandoSql = @"SELECT TarefaId,
+                                         FuncionarioId,
+                                         EmpresaClienteId,
+                                         AssuntoTarefa,
+                                         Descricao,
+                                         TipoDaTarefa,
+                                         DataHorarioInicioTarefa,   
+                                         DataHorarioFimTarefa,
+                                         TempoTotalGastoTarefa FROM Tarefas WHERE DataHorarioInicioTarefa >=  @dataInicial and DataHorarioInicioTarefa <= @dataFinal ";
+
+
+            using (var cmd = new SqlCommand(comandoSql, _conn))
+            {
+                cmd.Parameters.AddWithValue("@dataInicial", dataInicial);
+                cmd.Parameters.AddWithValue("@dataFinal", dataFinal);
+
+                using (var rdr = cmd.ExecuteReader())
+                {
+                    var Tarefas = new List<Tarefa>();
+                    while (rdr.Read())
+                    {
+                        var Tarefa = new Tarefa();
+                        Tarefa.TarefaId = Convert.ToInt32(rdr["TarefaId"]);
+                        Tarefa.FuncionarioId = Convert.ToInt32(rdr["FuncionarioId"]);
+                        Tarefa.EmpresaClienteId = Convert.ToInt32(rdr["EmpresaClienteId"]);
+                        Tarefa.AssuntoTarefa = Convert.ToString(rdr["AssuntoTarefa"]);
+                        Tarefa.Descricao = Convert.ToString(rdr["Descricao"]);
+                        Tarefa.TipoDaTarefa = (TipoDaTarefa)Convert.ToInt32(rdr["TipoDaTarefa"]);
+                        Tarefa.DataHorarioInicioTarefa = Convert.ToDateTime(rdr["DataHorarioInicioTarefa"]);
+                        Tarefa.DataHorarioFimTarefa = Convert.ToDateTime(rdr["DataHorarioFimTarefa"]);
+                        Tarefa.TempoTotalGastoTarefa = Convert.ToString(rdr["TempoTotalGastoTarefa"]);
+                        Tarefas.Add(Tarefa);
+                    }
+                    return Tarefas;
+                }
+            }
+        }
+
+        public Tarefa? Obtedr(int tarefaId)
+        {
+            string comandoSql = @"SELECT TarefaId,
+                                         FuncionarioId,
+                                         EmpresaClienteId,
+                                         AssuntoTarefa,
+                                         Descricao,
+                                         TipoDaTarefa,
+                                         DataHorarioInicioTarefa,   
+                                         DataHorarioFimTarefa,
+                                         TempoTotalGastoTarefa FROM Tarefas WHERE TarefaId = @TarefaId";
+
+            using (var cmd = new SqlCommand(comandoSql, _conn))
+            {
+                cmd.Parameters.AddWithValue("@TarefaId", tarefaId);
+
+                using (var rdr = cmd.ExecuteReader())
+                {
+                    if (rdr.Read())
+                    {
+                        var Tarefa = new Tarefa();
+                        Tarefa.TarefaId = Convert.ToInt32(rdr["TarefaId"]);
+                        Tarefa.FuncionarioId = Convert.ToInt32(rdr["FuncionarioId"]);
+                        Tarefa.EmpresaClienteId = Convert.ToInt32(rdr["EmpresaClienteId"]);
+                        Tarefa.AssuntoTarefa = Convert.ToString(rdr["AssuntoTarefa"]);
+                        Tarefa.Descricao = Convert.ToString(rdr["Descricao"]);
+                        Tarefa.TipoDaTarefa = (TipoDaTarefa)Convert.ToInt32(rdr["TipoDaTarefa"]);
+                        Tarefa.DataHorarioInicioTarefa = Convert.ToDateTime(rdr["DataHorarioInicioTarefa"]);
+                        Tarefa.DataHorarioFimTarefa = Convert.ToDateTime(rdr["DataHorarioFimTarefa"]);
+                        Tarefa.TempoTotalGastoTarefa = Convert.ToString(rdr["TempoTotalGastoTarefa"]);
+                        return Tarefa;
+                    }
+                    else
+                        return null;
+                }
+            }
+        }
     }
 }
