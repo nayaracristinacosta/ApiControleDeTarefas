@@ -100,7 +100,7 @@
             <returns></returns>
             <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
         </member>
-        <member name="M:ApiControleDeTarefas.Controllers.RelarorioController.Listar(ApiControleDeTarefas.Domain.Models.Contratos.Filtro)">
+        <member name="M:ApiControleDeTarefas.Controllers.RelatorioController.Listar(ApiControleDeTarefas.Domain.Models.Contratos.Filtro)">
             <summary>
             Através dessa rota você será capaz de listar relatorio por dia, semana, mês atual e mês anterior - 
             Campos obrigatórios: selecione o intervalos de dias desejado

@@ -13,10 +13,10 @@ namespace ApiControleDeTarefas.Controllers
 {
     [Authorize]
     [ApiController]
-    public class RelarorioController : ControllerBase
+    public class RelatorioController : ControllerBase
     {
         private readonly RelatorioService _service;
-        public RelarorioController(RelatorioService service)
+        public RelatorioController(RelatorioService service)
         {
             _service = service;
         }
