@@ -199,6 +199,10 @@
               "target": "Package",
               "version": "[6.26.0, )"
             },
+            "System.Net.Mail.Abstractions": {
+              "target": "Package",
+              "version": "[1.1.21, )"
+            },
             "Wodsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
               "version": "[1.1.2, )"

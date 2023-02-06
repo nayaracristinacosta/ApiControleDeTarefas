@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IYT5ZuER8eZmbA6ofhA8cEThFM9yic3SnrHp20TKhIS7z89gO3G9ImNKWj6B21XYrhm0FZSthY1WBILD8qhI0A==",
+  "dgSpecHash": "UZV+wybXnTm9WG1LFZus9y7qXB1lqmwvjbmU3Hs42Ck74xgs/aLuW0KFXwHLa+cE3Rn+o0p+Xwi8dy44GwDKwQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.Services\\ApiControleDeTarefas.Services.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.formats.asn1\\6.0.0\\system.formats.asn1.6.0.0.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.26.0\\system.identitymodel.tokens.jwt.6.26.0.nupkg.sha512",
+    "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.net.mail.abstractions\\1.1.21\\system.net.mail.abstractions.1.1.21.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.runtime.caching\\4.7.0\\system.runtime.caching.4.7.0.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",

@@ -61,6 +61,8 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
             }
         }
 
+
+
         public void Atualizar(Funcionario model)
         {
             string comandoSql = @"UPDATE Funcionarios 
@@ -88,6 +90,24 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                 cmd.Parameters.AddWithValue("@Perfil", model.Perfil);
                 if (cmd.ExecuteNonQuery() == 0)
                     throw new InvalidOperationException($"Nenhum registro afetado para o Funcionario de ID {model.FuncionarioId}");
+            }
+        }
+
+        public void AtualizarToken(string email, int token)
+        {
+            string comandoSql = @"UPDATE Funcionarios 
+                                SET 
+                                    TokenEmail = @TokenEmail
+
+                                WHERE EmailDoFuncionario = @EmailDoFuncionario;";
+
+            using (var cmd = new SqlCommand(comandoSql, _conn))
+            {
+                cmd.Parameters.AddWithValue("@EmailDoFuncionario", email);
+                cmd.Parameters.AddWithValue("@TokenEmail", token);
+
+                if (cmd.ExecuteNonQuery() == 0)
+                    throw new InvalidOperationException($"Nenhum registro afetado para o email informado {email}");
             }
         }
         public bool SeExiste(int FuncionarioId)

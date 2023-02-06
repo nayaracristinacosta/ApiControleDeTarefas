@@ -107,5 +107,19 @@ namespace ApiControleDeTarefas.Controllers
                 return StatusCode(500, ex.ToString());
             }
         }
+
+        /// <summary>
+        /// Através dessa rota você será capaz de receber toke no e-mail - 
+        /// Não está funcionando
+        /// </summary>
+        /// <returns></returns>
+        /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        [Authorize(Roles = ConstantUtil.Gerente)]
+        [HttpPost("Funcionario/{emailFuncionario}")]
+        public IActionResult RedefinirSenha([FromRoute] string emailFuncionario)
+        {
+            _service.EnviaEmail(emailFuncionario);
+            return StatusCode(200);
+        }
     }
 }

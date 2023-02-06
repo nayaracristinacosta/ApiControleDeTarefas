@@ -649,6 +649,15 @@
           }
         }
       },
+      "System.Net.Mail.Abstractions/1.1.21": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/System.Net.Mail.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Net.Mail.Abstractions.dll": {}
+        }
+      },
       "System.Runtime/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -960,6 +969,7 @@
           "Microsoft.IdentityModel.Tokens": "6.26.0",
           "MimeKit": "3.5.0",
           "System.IdentityModel.Tokens.Jwt": "6.26.0",
+          "System.Net.Mail.Abstractions": "1.1.21",
           "Wodsoft.Extensions.Configuration.Abstractions": "1.1.2"
         },
         "compile": {
@@ -1925,6 +1935,18 @@
         "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.xml",
         "system.identitymodel.tokens.jwt.6.26.0.nupkg.sha512",
         "system.identitymodel.tokens.jwt.nuspec"
+      ]
+    },
+    "System.Net.Mail.Abstractions/1.1.21": {
+      "sha512": "ai5VFcfdYVmOciq3AUD5i9oy7LE2zZFUouWDBHlFufzkUXsw9xnEW4DgtJNbmMVqHV9Mt5aJKoHRdie7+bNi5w==",
+      "type": "package",
+      "path": "system.net.mail.abstractions/1.1.21",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/System.Net.Mail.Abstractions.dll",
+        "system.net.mail.abstractions.1.1.21.nupkg.sha512",
+        "system.net.mail.abstractions.nuspec"
       ]
     },
     "System.Runtime/4.3.0": {

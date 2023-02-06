@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZeERnPZkfUBENFlGjO6L25gLrW2NPQD9cS30pWPyT+liA82Y94bkpq6Sa/0VnggmScCje7cwLjULF5+qGa1iXQ==",
+  "dgSpecHash": "L2HZnUQwrKZALYmntHign8XEzfhA/jTPcCVZv+rCnaxpPxyh1aqyCv5IMy8S0pK9DUSd8bK9+TH2qDo7t/DBqQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\NayaraCosta\\Desktop\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas\\ApiControleDeTarefas.csproj",
   "expectedPackageFiles": [
@@ -105,6 +105,7 @@
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.management.automation.dll\\10.0.10586\\system.management.automation.dll.10.0.10586.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",
+    "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.net.mail.abstractions\\1.1.21\\system.net.mail.abstractions.1.1.21.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.net.sockets\\4.3.0\\system.net.sockets.4.3.0.nupkg.sha512",
     "C:\\Users\\NayaraCosta\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",

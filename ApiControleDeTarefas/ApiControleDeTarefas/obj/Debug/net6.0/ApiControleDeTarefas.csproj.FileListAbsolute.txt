@@ -181,3 +181,4 @@ C:\Users\NayaraCosta\Desktop\ApiControleDeTarefas\ApiControleDeTarefas\ApiContro
 C:\Users\NayaraCosta\Desktop\ApiControleDeTarefas\ApiControleDeTarefas\ApiControleDeTarefas\bin\Debug\net6.0\BouncyCastle.Crypto.dll
 C:\Users\NayaraCosta\Desktop\ApiControleDeTarefas\ApiControleDeTarefas\ApiControleDeTarefas\bin\Debug\net6.0\ApiControleDeTarefas.xml
 C:\Users\NayaraCosta\Desktop\ApiControleDeTarefas\ApiControleDeTarefas\ApiControleDeTarefas\obj\Debug\net6.0\ApiControleDeTarefas.xml
+C:\Users\NayaraCosta\Desktop\ApiControleDeTarefas\ApiControleDeTarefas\ApiControleDeTarefas\bin\Debug\net6.0\System.Net.Mail.Abstractions.dll

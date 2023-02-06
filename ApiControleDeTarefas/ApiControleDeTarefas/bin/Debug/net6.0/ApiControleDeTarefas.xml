@@ -92,6 +92,14 @@
             <returns></returns>
             <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
         </member>
+        <member name="M:ApiControleDeTarefas.Controllers.FuncionarioController.RedefinirSenha(System.String)">
+            <summary>
+            Através dessa rota você será capaz de receber toke no e-mail - 
+            Não está funcionando
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
         <member name="M:ApiControleDeTarefas.Controllers.RelarorioController.Listar(ApiControleDeTarefas.Domain.Models.Contratos.Filtro)">
             <summary>
             Através dessa rota você será capaz de listar relatorio por dia, semana, mês atual e mês anterior - 

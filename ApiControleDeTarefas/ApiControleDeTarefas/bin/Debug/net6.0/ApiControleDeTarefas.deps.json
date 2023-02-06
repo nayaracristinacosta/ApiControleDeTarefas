@@ -979,6 +979,14 @@
           "runtime.native.System.Security.Cryptography.OpenSsl": "4.3.0"
         }
       },
+      "System.Net.Mail.Abstractions/1.1.21": {
+        "runtime": {
+          "lib/netstandard2.0/System.Net.Mail.Abstractions.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "1.1.21.0"
+          }
+        }
+      },
       "System.Net.Primitives/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -1423,6 +1431,7 @@
           "Microsoft.IdentityModel.Tokens": "6.26.0",
           "MimeKit": "3.5.0",
           "System.IdentityModel.Tokens.Jwt": "6.26.0",
+          "System.Net.Mail.Abstractions": "1.1.21",
           "Wodsoft.Extensions.Configuration.Abstractions": "1.1.2"
         },
         "runtime": {
@@ -2152,6 +2161,13 @@
       "sha512": "sha512-sYg+FtILtRQuYWSIAuNOELwVuVsxVyJGWQyOnlAzhV4xvhyFnON1bAzYYC+jjRW8JREM45R0R5Dgi8MTC5sEwA==",
       "path": "system.net.http/4.3.0",
       "hashPath": "system.net.http.4.3.0.nupkg.sha512"
+    },
+    "System.Net.Mail.Abstractions/1.1.21": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ai5VFcfdYVmOciq3AUD5i9oy7LE2zZFUouWDBHlFufzkUXsw9xnEW4DgtJNbmMVqHV9Mt5aJKoHRdie7+bNi5w==",
+      "path": "system.net.mail.abstractions/1.1.21",
+      "hashPath": "system.net.mail.abstractions.1.1.21.nupkg.sha512"
     },
     "System.Net.Primitives/4.3.0": {
       "type": "package",

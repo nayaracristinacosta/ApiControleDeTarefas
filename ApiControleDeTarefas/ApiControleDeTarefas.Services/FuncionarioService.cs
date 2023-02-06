@@ -7,11 +7,14 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using System.Net;
+using System.Net.Mail;
 
 namespace ApiControleDeTarefas.Services
 {
@@ -176,7 +179,7 @@ namespace ApiControleDeTarefas.Services
 
             var isValidaSenha = ValidaSenha(model.SenhaDoFuncionario);
             if(!isValidaSenha)
-            throw new ValidacaoException("A senha informada não atende aos padrões estabelecidos.");
+            throw new ValidacaoException("A senha informada não atende aos padrões estabelecidos - *** A senha deve conter 8 caracteres, pelo menos 1 letra maiúscula e pelo menos 1 número.***");
             #endregion
 
             #region Valida Perfil
@@ -436,6 +439,48 @@ namespace ApiControleDeTarefas.Services
 
         }
         #endregion
+
+
+
+        public void EnviaEmail(string email)
+        {
+   
+            MailMessage message = new MailMessage();
+            Random numAleatorio = new Random();
+            int token = numAleatorio.Next(5, 21);
+            message.To.Add(email);
+            message.Subject = "Recuperação de senha";
+            message.Body = "Seu token é: " + token;
+
+            CadastraTokenNaBase(email, token);
+
+            SmtpClient client = new SmtpClient();
+            client.Host = "in-v3.mailjet.com";
+            client.Port = 465;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("nayaraewerton@proton.me", "114ea5de986c57a0e56cb7ee61e7ca3c4728e10b");
+            message.From = new MailAddress("nayaraewerton@proton.me");
+            //client.EnableSsl = true;
+            client.Send(message);
+        }
+
+        public void CadastraTokenNaBase(string email, int token)
+        {
+            try
+            {
+     
+                _repositorio.AbrirConexao();
+                _repositorio.AtualizarToken(email, token);
+
+
+            }
+            finally
+            {
+                _repositorio.FecharConexao();
+            }
+
+        }
+
 
      
     }
