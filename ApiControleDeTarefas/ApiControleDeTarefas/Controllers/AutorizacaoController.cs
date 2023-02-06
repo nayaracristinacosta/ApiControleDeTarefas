@@ -18,7 +18,7 @@ namespace ApiControleDeTarefas.Controllers
         }
 
         /// <summary>
-        /// Metodo para autenticar no sistema
+        /// Método para autenticar no sistema
         /// Campos obrigatórios: email, senha
         /// </summary>
         /// <param name="model"></param>

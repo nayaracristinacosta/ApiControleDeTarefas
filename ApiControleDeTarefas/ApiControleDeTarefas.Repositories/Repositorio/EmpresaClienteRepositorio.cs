@@ -19,13 +19,13 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
         public void Inserir(EmpresaClienteRequest model)
         {
             string comandoSql = @"INSERT INTO EmpresasCliente
-                                    (NomeDaEmpresa,Cnpj,EnderecoDaEmpresa,DataDeInclusaoDaEmpresa,NomeGestorDoContrato,EmailGestorDoContrato) 
+                                    (RazaoSocial,Cnpj,EnderecoDaEmpresa,DataDeInclusaoDaEmpresa,NomeGestorDoContrato,EmailGestorDoContrato) 
                                         VALUES
-                                    (@NomeDaEmpresa,@Cnpj,@EnderecoDaEmpresa,@DataDeInclusaoDaEmpresa,@NomeGestorDoContrato,@EmailGestorDoContrato);";
+                                    (@RazaoSocial,@Cnpj,@EnderecoDaEmpresa,@DataDeInclusaoDaEmpresa,@NomeGestorDoContrato,@EmailGestorDoContrato);";
 
             using (var cmd = new SqlCommand(comandoSql, _conn))
             {
-                cmd.Parameters.AddWithValue("@NomeDaEmpresa", model.NomeDaEmpresa);
+                cmd.Parameters.AddWithValue("@RazaoSocial", model.RazaoSocial);
                 cmd.Parameters.AddWithValue("@Cnpj", model.Cnpj);
                 cmd.Parameters.AddWithValue("@EnderecoDaEmpresa", model.EnderecoDaEmpresa);
                 cmd.Parameters.AddWithValue("@DataDeInclusaoDaEmpresa", model.DataDeInclusaoDaEmpresa);
@@ -127,8 +127,7 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
         }
         public List<EmpresaCliente> ListarEmpresaClientes(string? razaoSocial)
         {
-            string comandoSql = @"SELECT TarefaId,
-                                         EmpresaClienteId,
+            string comandoSql = @"SELECT EmpresaClienteId,
                                          RazaoSocial,
                                          Cnpj,
                                          EnderecoDaEmpresa,   
@@ -153,7 +152,7 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                         var EmpresaCliente = new EmpresaCliente();
                         EmpresaCliente.EmpresaClienteId = Convert.ToInt32(rdr["EmpresaClienteId"]);
                         EmpresaCliente.EmpresaClienteId = Convert.ToInt32(rdr["EmpresaClienteId"]);
-                        EmpresaCliente.RazaoSocial = Convert.ToString(rdr["NomeDaEmpresa"]);
+                        EmpresaCliente.RazaoSocial = Convert.ToString(rdr["RazaoSocial"]);
                         EmpresaCliente.Cnpj = Convert.ToString(rdr["Cnpj"]);
                         EmpresaCliente.EnderecoDaEmpresa = Convert.ToString(rdr["EnderecoDaEmpresa"]);
                         EmpresaCliente.DataDeInclusaoDaEmpresa = Convert.ToDateTime(rdr["DataDeInclusaoDaEmpresa"]);
@@ -175,6 +174,7 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                 cmd.Parameters.AddWithValue("@EmpresaClienteId", empresaClienteId);
                 if (cmd.ExecuteNonQuery() == 0)
                     throw new InvalidOperationException($"Nenhum registro afetado para o EmpresasCliente ID informado {empresaClienteId}");
+            
             }
         }
     }

@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiControleDeTarefas</name>
+    </assembly>
+    <members>
+        <member name="M:ApiControleDeTarefas.Controllers.AutorizacaoController.Login(ApiControleDePonto.Domain.Models.Contratos.FuncionarioRequest)">
+            <summary>
+            Método para autenticar no sistema
+            Campos obrigatórios: email, senha
+            </summary>
+            <param name="model"></param>
+            <returns>Retorna um bearer token de 12 horas com nivel de acesso e nome do usuário</returns>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.EmpresaClienteController.Listar(System.String)">
+            <summary>
+            Através dessa rota você será capaz de listar as empresas  - 
+            Campos obrigatórios: Não há campo obrigatorios, razaoSocial é opcional
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.EmpresaClienteController.ObterPorId(System.Int32)">
+            <summary>
+            Através dessa rota você será capaz de listar uma empresa -
+            Campos obrigatórios: empresaCleinteId
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.EmpresaClienteController.Inserir(ApiControleDeTarefas.Domain.Models.Contratos.EmpresaClienteRequest)">
+            <summary>
+            Através dessa rota você será capaz de cadastrar uma empresa - 
+            Campos obrigatórios: todos os campos são obrigatórios
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.EmpresaClienteController.Deletar(System.Int32)">
+            <summary>
+            Através dessa rota você será capaz de deletar uma emrpesa - 
+            Campos obrigatórios: empresaClienteId
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.EmpresaClienteController.Atualizar(ApiControleDeTarefas.Domain.Models.EmpresaCliente)">
+            <summary>
+            Através dessa rota você será capaz de atualizar uma empresa - 
+            Campos obrigatórios: Você pode alterar qualquer campo
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.FuncionarioController.Listar(System.String)">
+            <summary>
+            Através dessa rota você será capaz de listar os funcionários - 
+            Campos obrigatórios: o campo nomeDoFuncionario é opcional
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.FuncionarioController.ObterPorId(System.Int32)">
+            <summary>
+            Através dessa rota você será capaz de listar um funcionário -
+            Campos obrigatórios: funcionaroiId
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.FuncionarioController.Inserir(ApiControleDeTarefas.Domain.Models.Funcionario)">
+            <summary>
+            Através dessa rota você será capaz de cadastrar um funcionário - 
+            Campos obrigatórios: todos os campos são obrigatorios
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.FuncionarioController.Deletar(System.Int32)">
+            <summary>
+            Através dessa rota você será capaz de deletar um funcionário - 
+            Campos obrigatórios: funcionaroiId
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.FuncionarioController.Atualizar(ApiControleDeTarefas.Domain.Models.Funcionario)">
+            <summary>
+            Através dessa rota você será capaz de atualizar os dados de um funcionário - 
+            Campos obrigatórios: os campos são opcionais
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.RelarorioController.Listar(ApiControleDeTarefas.Domain.Models.Contratos.Filtro)">
+            <summary>
+            Através dessa rota você será capaz de listar relatorio por dia, semana, mês atual e mês anterior - 
+            Campos obrigatórios: selecione o intervalos de dias desejado
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.TarefaController.Listar(System.String)">
+            <summary>
+            Através dessa rota você será capaz de listar tarefas - 
+            Campos obrigatórios: O campo descrição é opcional 
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.TarefaController.ObterPorId(System.Int32)">
+            <summary>
+            Através dessa rota você será capaz de listar uma tarefa -
+            Campos obrigatórios: tarefaiId
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.TarefaController.Inserir(ApiControleDeTarefas.Domain.Models.Contratos.TarefaRequest)">
+            <summary>
+            Através dessa rota você será capaz de cadastrar uma tarefa - 
+            Campos obrigatórios: todos os campos são obrigatórios
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.TarefaController.Deletar(System.Int32)">
+            <summary>
+            Através dessa rota você será capaz de deletar uma tarefa - 
+            Campos obrigatórios: tarefaiId
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+        <member name="M:ApiControleDeTarefas.Controllers.TarefaController.Atualizar(ApiControleDeTarefas.Domain.Models.Tarefa)">
+            <summary>
+            Através dessa rota você será capaz de atualizar uma tarefa - 
+            Campos obrigatórios: Não há campos obrigatórios
+            </summary>
+            <returns></returns>
+            <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
+        </member>
+    </members>
+</doc>

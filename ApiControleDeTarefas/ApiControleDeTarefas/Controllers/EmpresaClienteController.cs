@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ApiControleDeTarefas.Domain.Models;
 using ApiControleDeTarefas.Domain.Models.Contratos;
+using ApiControleDeTarefas.Domain.Utils;
 
 namespace ApiControleDeTarefas.Controllers
 {
@@ -20,25 +21,25 @@ namespace ApiControleDeTarefas.Controllers
         }
 
         /// <summary>
-        /// Através dessa rota você será capaz de listar um cargo - 
-        /// Campos obrigatórios: descricao
+        /// Através dessa rota você será capaz de listar as empresas  - 
+        /// Campos obrigatórios: Não há campo obrigatorios, razaoSocial é opcional
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2,3")]
+        [Authorize(Roles = ConstantUtil.Gerente)]
         [HttpGet("EmpresaCliente")]
-        public IActionResult Listar([FromQuery] string? descricao)
+        public IActionResult Listar([FromQuery] string? razaoSocial)
         {
-            return StatusCode(200, _service.Listar(descricao));
+            return StatusCode(200, _service.Listar(razaoSocial));
         }
 
         /// <summary>
-        /// Através dessa rota você será capaz de listar um cargo -
-        /// Campos obrigatórios: cargoId
+        /// Através dessa rota você será capaz de listar uma empresa -
+        /// Campos obrigatórios: empresaCleinteId
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2,3")]
+        [Authorize(Roles = ConstantUtil.Gerente)]
         [HttpGet("EmpresaCliente/{empresaClienteId}")]
         public IActionResult ObterPorId([FromRoute] int empresaClienteId)
         {
@@ -46,12 +47,12 @@ namespace ApiControleDeTarefas.Controllers
         }
 
         /// <summary>
-        /// Através dessa rota você será capaz de cadastrar um cargo - 
-        /// Campos obrigatórios: descricao
+        /// Através dessa rota você será capaz de cadastrar uma empresa - 
+        /// Campos obrigatórios: todos os campos são obrigatórios
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2")]
+        [Authorize(Roles = ConstantUtil.Gerente)]
         [HttpPost("EmpresaCliente")]
         public IActionResult Inserir([FromBody] EmpresaClienteRequest model)
         {
@@ -70,12 +71,12 @@ namespace ApiControleDeTarefas.Controllers
             }
         }
         /// <summary>
-        /// Através dessa rota você será capaz de deletar um cargo - 
-        /// Campos obrigatórios: cargoId
+        /// Através dessa rota você será capaz de deletar uma emrpesa - 
+        /// Campos obrigatórios: empresaClienteId
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2")]
+        [Authorize(Roles = ConstantUtil.Gerente)]
         [HttpDelete("EmpresaCliente/{empresaClienteId}")]
         public IActionResult Deletar([FromRoute] int empresaClienteId)
         {
@@ -84,12 +85,12 @@ namespace ApiControleDeTarefas.Controllers
         }
 
         /// <summary>
-        /// Através dessa rota você será capaz de atualizar um cargo - 
-        /// Campos obrigatórios: cargoId, descricao
+        /// Através dessa rota você será capaz de atualizar uma empresa - 
+        /// Campos obrigatórios: Você pode alterar qualquer campo
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2")]
+        [Authorize(Roles = ConstantUtil.Gerente)]
         [HttpPut("EmpresaCliente")]
         public IActionResult Atualizar([FromBody] EmpresaCliente model)
         {

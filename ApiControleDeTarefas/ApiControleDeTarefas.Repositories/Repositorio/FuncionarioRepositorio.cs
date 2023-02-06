@@ -131,7 +131,6 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                                          Cpf,    
                                          CelularDoFuncionario,
                                          EmailDoFuncionario,
-                                         SenhaDoFuncionario, 
                                          Perfil FROM Funcionarios WHERE FuncionarioId = @FuncionarioId";
 
             using (var cmd = new SqlCommand(comandoSql, _conn))
@@ -150,7 +149,6 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                         Funcionario.Cpf = Convert.ToString(rdr["Cpf"]);
                         Funcionario.CelularDoFuncionario = Convert.ToString(rdr["CelularDoFuncionario"]);
                         Funcionario.EmailDoFuncionario = Convert.ToString(rdr["EmailDoFuncionario"]);
-                        Funcionario.SenhaDoFuncionario = Convert.ToString(rdr["SenhaDoFuncionario"]);
                         Funcionario.Perfil = Convert.ToInt32(rdr["Perfil"]);
                         return Funcionario;
                     }
@@ -168,7 +166,6 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                                          Cpf,    
                                          CelularDoFuncionario,
                                          EmailDoFuncionario,
-                                         SenhaDoFuncionario, 
                                          Perfil FROM Funcionarios";
 
             if (!string.IsNullOrWhiteSpace(nomeDoFuncionario))
@@ -192,7 +189,6 @@ namespace ApiControleDeTarefas.Repositories.Repositorio
                         Funcionario.Cpf = Convert.ToString(rdr["Cpf"]);
                         Funcionario.CelularDoFuncionario = Convert.ToString(rdr["CelularDoFuncionario"]);
                         Funcionario.EmailDoFuncionario = Convert.ToString(rdr["EmailDoFuncionario"]);
-                        Funcionario.SenhaDoFuncionario = Convert.ToString(rdr["SenhaDoFuncionario"]);
                         Funcionario.Perfil = Convert.ToInt32(rdr["Perfil"]);
                         Funcionarios.Add(Funcionario);
                     }

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using ApiControleDeTarefas.Domain.Models;
 using ApiControleDeTarefas.Domain.Models.Contratos;
 using System.Security.Claims;
-
+using ApiControleDeTarefas.Domain.Utils;
 
 namespace ApiControleDeTarefas.Controllers
 {
@@ -22,12 +22,12 @@ namespace ApiControleDeTarefas.Controllers
         }
 
         /// <summary>
-        /// Através dessa rota você será capaz de listar um cargo - 
-        /// Campos obrigatórios: descricao
+        /// Através dessa rota você será capaz de listar relatorio por dia, semana, mês atual e mês anterior - 
+        /// Campos obrigatórios: selecione o intervalos de dias desejado
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        //[Authorize(Roles = "1,2,3")]
+        [Authorize(Roles = ConstantUtil.Gerente)]
         [HttpGet("Relatorio")]
         public IActionResult Listar([FromQuery] Filtro filtro)
         {

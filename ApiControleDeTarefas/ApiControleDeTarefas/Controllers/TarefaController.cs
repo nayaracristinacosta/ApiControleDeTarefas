@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using ApiControleDeTarefas.Domain.Models;
 using ApiControleDeTarefas.Domain.Models.Contratos;
 using System.Security.Claims;
+using ApiControleDeTarefas.Domain.Utils;
 
 namespace ApiControleDeTarefas.Controllers
 {
@@ -21,12 +22,12 @@ namespace ApiControleDeTarefas.Controllers
         }
 
         /// <summary>
-        /// Através dessa rota você será capaz de listar um cargo - 
-        /// Campos obrigatórios: descricao
+        /// Através dessa rota você será capaz de listar tarefas - 
+        /// Campos obrigatórios: O campo descrição é opcional 
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2,3")]
+        [Authorize(Roles = ConstantUtil.Geral)]
         [HttpGet("Tarefa")]
         public IActionResult Listar([FromQuery] string? descricao)
         {
@@ -36,12 +37,12 @@ namespace ApiControleDeTarefas.Controllers
         }
 
         /// <summary>
-        /// Através dessa rota você será capaz de listar um cargo -
-        /// Campos obrigatórios: cargoId
+        /// Através dessa rota você será capaz de listar uma tarefa -
+        /// Campos obrigatórios: tarefaiId
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2,3")]
+        [Authorize(Roles = ConstantUtil.Geral)]
         [HttpGet("Tarefa/{tarefaiId}")]
         public IActionResult ObterPorId([FromRoute] int tarefaiId)
         {
@@ -49,12 +50,12 @@ namespace ApiControleDeTarefas.Controllers
         }
 
         /// <summary>
-        /// Através dessa rota você será capaz de cadastrar um cargo - 
-        /// Campos obrigatórios: descricao
+        /// Através dessa rota você será capaz de cadastrar uma tarefa - 
+        /// Campos obrigatórios: todos os campos são obrigatórios
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2")]
+        [Authorize(Roles = ConstantUtil.Funcionario)]
         [HttpPost("Tarefa")]
         public IActionResult Inserir([FromBody] TarefaRequest model)
         {
@@ -73,12 +74,12 @@ namespace ApiControleDeTarefas.Controllers
             }
         }
         /// <summary>
-        /// Através dessa rota você será capaz de deletar um cargo - 
-        /// Campos obrigatórios: cargoId
+        /// Através dessa rota você será capaz de deletar uma tarefa - 
+        /// Campos obrigatórios: tarefaiId
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2")]
+        [Authorize(Roles = ConstantUtil.Funcionario)]
         [HttpDelete("Tarefa/{tarefaiId}")]
         public IActionResult Deletar([FromRoute] int tarefaiId)
         {
@@ -87,12 +88,12 @@ namespace ApiControleDeTarefas.Controllers
         }
 
         /// <summary>
-        /// Através dessa rota você será capaz de atualizar um cargo - 
-        /// Campos obrigatórios: cargoId, descricao
+        /// Através dessa rota você será capaz de atualizar uma tarefa - 
+        /// Campos obrigatórios: Não há campos obrigatórios
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2")]
+        [Authorize(Roles = ConstantUtil.Funcionario)]
         [HttpPut("Tarefa")]
         public IActionResult Atualizar([FromBody] Tarefa model)
         {

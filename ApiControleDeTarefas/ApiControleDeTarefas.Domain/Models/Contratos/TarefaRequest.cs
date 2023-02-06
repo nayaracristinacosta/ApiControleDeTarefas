@@ -14,7 +14,6 @@ namespace ApiControleDeTarefas.Domain.Models.Contratos
         public string Descricao { get; set; }
         public TipoDaTarefa TipoDaTarefa { get; set; }
         public DateTime DataHorarioInicioTarefa { get; set; }
-        public DateTime DataHorarioFimTarefa { get; set; }
         
     }
 }

@@ -96,13 +96,14 @@ namespace ApiControleDeTarefas.Services
 
             #region Valida Nome da Empresa
 
-            if (model.NomeDaEmpresa.Trim().Length < 3 || model.NomeDaEmpresa.Trim().Length > 255)
-                throw new ValidacaoException("O Nome da empresa não pode estar vazio e precisa ter entre 3 a 255 caracteres.");
 
-            if (string.IsNullOrWhiteSpace(model.NomeDaEmpresa))
+            if (string.IsNullOrWhiteSpace(model.RazaoSocial))
                 throw new ValidacaoException("O Nome do empresa é obrigatório.");
 
-            model.NomeDaEmpresa = model.NomeDaEmpresa.Trim();
+            if (model.RazaoSocial.Trim().Length < 3 || model.RazaoSocial.Trim().Length > 255)
+                throw new ValidacaoException("O Nome da empresa não pode estar vazio e precisa ter entre 3 a 255 caracteres.");
+
+            model.RazaoSocial = model.RazaoSocial.Trim();
 
             #endregion
 

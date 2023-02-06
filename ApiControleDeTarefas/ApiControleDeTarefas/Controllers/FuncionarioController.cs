@@ -5,6 +5,7 @@ using ApiControleDeTarefas.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ApiControleDeTarefas.Domain.Models;
+using ApiControleDeTarefas.Domain.Utils;
 
 namespace ApiControleDeTarefas.Controllers
 {
@@ -19,25 +20,25 @@ namespace ApiControleDeTarefas.Controllers
         }
 
         /// <summary>
-        /// Através dessa rota você será capaz de listar um cargo - 
-        /// Campos obrigatórios: descricao
+        /// Através dessa rota você será capaz de listar os funcionários - 
+        /// Campos obrigatórios: o campo nomeDoFuncionario é opcional
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2,3")]
+        [Authorize(Roles = ConstantUtil.Gerente)]
         [HttpGet("Funcionario")]
-        public IActionResult Listar([FromQuery] string? descricao)
+        public IActionResult Listar([FromQuery] string? nomeDoFuncionario)
         {
-            return StatusCode(200, _service.Listar(descricao));
+            return StatusCode(200, _service.Listar(nomeDoFuncionario));
         }
 
         /// <summary>
-        /// Através dessa rota você será capaz de listar um cargo -
-        /// Campos obrigatórios: cargoId
+        /// Através dessa rota você será capaz de listar um funcionário -
+        /// Campos obrigatórios: funcionaroiId
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2,3")]
+        [Authorize(Roles = ConstantUtil.Geral)]
         [HttpGet("Funcionario/{funcionaroiId}")]
         public IActionResult ObterPorId([FromRoute] int funcionaroiId)
         {
@@ -45,12 +46,12 @@ namespace ApiControleDeTarefas.Controllers
         }
 
         /// <summary>
-        /// Através dessa rota você será capaz de cadastrar um cargo - 
-        /// Campos obrigatórios: descricao
+        /// Através dessa rota você será capaz de cadastrar um funcionário - 
+        /// Campos obrigatórios: todos os campos são obrigatorios
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2")]
+        [Authorize(Roles = ConstantUtil.Gerente)]
         [HttpPost("Funcionario")]
         public IActionResult Inserir([FromBody] Funcionario model)
         {
@@ -69,12 +70,12 @@ namespace ApiControleDeTarefas.Controllers
             }
         }
         /// <summary>
-        /// Através dessa rota você será capaz de deletar um cargo - 
-        /// Campos obrigatórios: cargoId
+        /// Através dessa rota você será capaz de deletar um funcionário - 
+        /// Campos obrigatórios: funcionaroiId
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2")]
+        [Authorize(Roles = ConstantUtil.Gerente)]
         [HttpDelete("Funcionario/{funcionaroiId}")]
         public IActionResult Deletar([FromRoute] int funcionaroiId)
         {
@@ -83,12 +84,12 @@ namespace ApiControleDeTarefas.Controllers
         }
 
         /// <summary>
-        /// Através dessa rota você será capaz de atualizar um cargo - 
-        /// Campos obrigatórios: cargoId, descricao
+        /// Através dessa rota você será capaz de atualizar os dados de um funcionário - 
+        /// Campos obrigatórios: os campos são opcionais
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via ID</response>
-        [Authorize(Roles = "1,2")]
+        [Authorize(Roles = ConstantUtil.Gerente)]
         [HttpPut("Funcionario")]
         public IActionResult Atualizar([FromBody] Funcionario model)
         {

@@ -8,7 +8,7 @@ namespace ApiControleDeTarefas.Domain.Models.Contratos
 {
     public class EmpresaClienteRequest
     {
-        public string NomeDaEmpresa { get; set; }
+        public string RazaoSocial { get; set; }
         public string Cnpj { get; set; }
         public string EnderecoDaEmpresa { get; set; }
         public DateTime DataDeInclusaoDaEmpresa { get; set; }
